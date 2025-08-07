@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Algorithmic Poetics: Data-Driven Visual Narratives</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.min.js"></script>
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; }
+    body { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; background: #191c29; color: #f8f8f2; min-height: 100vh; }
+    h1 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin-top: 40px; }
+    #canvas-container { margin: 30px 0; }
+    .caption { max-width: 600px; font-size: 1.1em; text-align: center; margin: 0 auto 20px auto; color: #afa7d8;}
+  </style>
+</head>
+<body>
+  <h1>Algorithmic Poetics: Data-Driven Visual Narratives</h1>
+  <div class="caption">
+    <p>This generative visualization is a starting point. Edit <code>index.html</code> with your own code, data, and narrative to create your unique interactive artwork.</p>
+  </div>
+  <div id="canvas-container"></div>
+  <script>
+    // Example p5.js sketch: animated generative lines
+    let t = 0;
+    function setup() {
+      let cnv = createCanvas(700, 400);
+      cnv.parent('canvas-container');
+      background(25, 28, 41);
+      stroke(175, 167, 216, 120);
+      strokeWeight(2);
+      noFill();
+    }
+    function draw() {
+      background(25, 28, 41, 30);
+      translate(width/2, height/2);
+      for (let i = 0; i < 10; i++) {
+        let angle = t + i * TWO_PI/10;
+        let r = 120 + 70 * sin(t + i);
+        let x = r * cos(angle);
+        let y = r * sin(angle);
+        ellipse(x, y, 50 + 40 * sin(t + i), 20 + 20 * cos(t - i));
+      }
+      t += 0.01;
+    }
+  </script>
+</body>
+</html>
